@@ -1,0 +1,33 @@
+{
+    "client": "Thunder Client",
+    "environmentName": "(Global Env)",
+    "dateExported": "2023-04-19T12:59:42.715Z",
+    "version": "1.0",
+    "global": true,
+    "variables": [
+        {
+            "name": "URL",
+            "value": "localhost:3000/api/v1"
+        },
+        {
+            "name": "URL2",
+            "value": "localhost:5000/api/v1"
+        },
+        {
+            "name": "ssmec",
+            "value": "localhost:5555/api/v1/ssmec/"
+        },
+        {
+            "name": "medicase",
+            "value": "192.168.43.1:5050/api/mfss"
+        },
+        {
+            "name": "ESTATE_SHARING_LOCAL",
+            "value": "localhost:5151/api/v1"
+        },
+        {
+            "name": "ESTATE_SHARING_ONLINE",
+            "value": "localhost:5151/api/v1"
+        }
+    ]
+}
