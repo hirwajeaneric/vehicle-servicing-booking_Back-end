@@ -71,7 +71,7 @@ const bookingSchema = new mongoose.Schema({
         }
     }
     ,
-    stopDate: {
+    cancelDate: {
         type: Date, 
         required: false
     },
