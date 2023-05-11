@@ -8,14 +8,20 @@ const scheduleSchema = new mongoose.Schema({
                 required: true,
             },
             slots: [
-                {
-                    type: String, 
-                    default: 'Occupied',
-                    required: true,
-                    enum: {
-                        values: ['Occupied', 'Free', 'Unusable'],
-                        message: '{VALUE} is not supported as a slot status.'
-                    }
+                { 
+                    status: {
+                        type: String, 
+                        default: 'Occupied',
+                        required: true,
+                        enum: {
+                            values: ['Occupied', 'Free', 'Unusable'],
+                            message: '{VALUE} is not supported as a slot status.'
+                        }
+                    },
+                    vehicle: {
+                        type: String, 
+                        required: false,
+                    },
                 }
             ]
         }

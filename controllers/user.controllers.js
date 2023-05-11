@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const User = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const Joi = require('joi');
@@ -32,9 +32,6 @@ const signIn = async (req, res) => {
             email: user.email,
             fullName: user.fullName,
             phone: user.phone,
-            nationality: user.nationality,
-            nationalId: user.nationalId,
-            passportNumber: user.passportNumber,
             profilePicturer: user.profilePicture,
             token: token,
         }
@@ -64,9 +61,6 @@ const signUp = async (req, res) => {
             email: user.email,
             fullName: user.fullName,
             phone: user.phone,
-            nationality: user.nationality,
-            nationalId: user.nationalId,
-            passportNumber: user.passportNumber,
             profilePicturer: user.profilePicture,
             token: token,
         }
@@ -143,9 +137,6 @@ const updateUser = async(req, res, next) => {
             email: updatedUser.email,
             fullName: updatedUser.fullName,
             phone: updatedUser.phone,
-            nationality: updatedUser.nationality,
-            nationalId: updatedUser.nationalId,
-            passportNumber: updatedUser.passportNumber,
             profilePicturer: updatedUser.profilePicture,
             token: token,
         }

@@ -10,24 +10,6 @@ const UserSchema = new mongoose.Schema({
         maxlength: 50,
         minlength: 3,
     },
-    nationality: { 
-        type: String, 
-        required: true, 
-    },
-    nationalId: { 
-        type: String, 
-        trim: true, 
-        required: false,
-        maxlength: 16,
-        minlength: 16, 
-    },
-    passportNumber: { 
-        type: String,
-        trim: true, 
-        required: false,
-        maxlength: 8,
-        minlength: 8, 
-    },
     email: { 
         type: String, 
         trim: true, 

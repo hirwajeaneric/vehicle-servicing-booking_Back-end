@@ -3,23 +3,44 @@ const mongoose = require('mongoose');
 const bookingSchema = new mongoose.Schema({
     fullName: { 
         type: String, 
-        required: true 
+        required: [true, 'Your name is provided'],
     },
     phone: { 
         type: String, 
-        required: true 
+        required: [true, 'Phone number must be provided'], 
+    },
+    email: { 
+        type: String, 
+        trim: true, 
+        required: [true, 'Email must be provided'],
+        match: [
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            'Please provide a valid email',
+        ],
     },
     vehicleType: { 
         type: String, 
-        required: true 
+        required: [true, 'Please, specify the type of your vehicle'], 
+        enum: {
+            values: ['Car','Motorcycle','Bicycle','Truck','Bus','SUV','Van','Convertible','Sedan','Hatchback','Coupe','Minivan','Pickup Truck','RV (Recreational Vehicle)','Trailer','Electric Vehicle (EV)','Hybrid Vehicle','Sports Car','Limousine','Ambulance','Taxi','Motorhome','Tractor', 'Other'],
+            message: '{VALUE} is not supported as a vehicle type.'
+        } 
     },
     vehicleModel: { 
         type: String, 
-        required: true 
+        required: [true, 'Vehicle model must be provided'],
     },
     typeOfService: { 
         type: String, 
-        required: true 
+        required: [true, 'You must choose the type of sercise you need'], 
+        enum: {
+            values: ['Oil Change', 'Tire Rotation', 'Brake Inspection', 'Engine Tune-up', 'Wheel Alignment', 'Battery Replacement', 'Diagnostic Services', 'Transmission Service', 'Air Conditioning Repair', 'Exhaust System Repair', 'Electrical System Repair', 'Suspension Repair', 'Radiator Flush', 'Fuel System Cleaning', 'Headlight Restoration', 'Windshield Replacement', 'Paintless Dent Repair', 'Interior Detailing', 'Car Wash and Wax', 'Towing Service', 'Other'],
+            message: '{VALUE} is not supported as a vehicle service.'
+        } 
+    },
+    serviceDescription: { 
+        type: String, 
+        required: false, 
     },
     clientConfirmation: { 
         type: String, 
@@ -32,12 +53,10 @@ const bookingSchema = new mongoose.Schema({
     },
     serviceDay: { 
         type: Date, 
-        required: true,
         default: Date.now() 
     },
     startHour: {
         type: Number,
-        required: true,
         default: new Date().getHours()
     },
     estimatedDuration: { 
@@ -50,7 +69,7 @@ const bookingSchema = new mongoose.Schema({
     },
     temporalSlotNumber: {
         type: String, 
-        required: true,
+        default: 1,
     },
     status: {
         type: String, 

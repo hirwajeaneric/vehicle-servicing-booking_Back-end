@@ -16,7 +16,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 app.use(express.json());
 app.use(cors());
 
-app.use('/api/v1/', allRoutes);
+app.use('/api/v1/vsb/', allRoutes);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
@@ -25,7 +25,7 @@ const port = process.env.PORT || 5151;
 
 const start = async () => {
   try {
-    await connectDB(process.env.MONGO_URI);
+    await connectDB(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/VEHICLE_BOOKING');
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );
