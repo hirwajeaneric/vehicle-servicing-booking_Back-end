@@ -22,8 +22,8 @@ const bookingSchema = new mongoose.Schema({
         type: String, 
         required: [true, 'Please, specify the type of your vehicle'], 
         enum: {
-            values: ['Car','Motorcycle','Bicycle','Truck','Bus','SUV','Van','Convertible','Sedan','Hatchback','Coupe','Minivan','Pickup Truck','RV (Recreational Vehicle)','Trailer','Electric Vehicle (EV)','Hybrid Vehicle','Sports Car','Limousine','Ambulance','Taxi','Motorhome','Tractor'],
-            message: '{VALUE} is not supported as a confirmation.'
+            values: ['Car','Motorcycle','Bicycle','Truck','Bus','SUV','Van','Convertible','Sedan','Hatchback','Coupe','Minivan','Pickup Truck','RV (Recreational Vehicle)','Trailer','Electric Vehicle (EV)','Hybrid Vehicle','Sports Car','Limousine','Ambulance','Taxi','Motorhome','Tractor', 'Other'],
+            message: '{VALUE} is not supported as a vehicle type.'
         } 
     },
     vehicleModel: { 
@@ -33,6 +33,14 @@ const bookingSchema = new mongoose.Schema({
     typeOfService: { 
         type: String, 
         required: [true, 'You must choose the type of sercise you need'], 
+        enum: {
+            values: ['Oil Change', 'Tire Rotation', 'Brake Inspection', 'Engine Tune-up', 'Wheel Alignment', 'Battery Replacement', 'Diagnostic Services', 'Transmission Service', 'Air Conditioning Repair', 'Exhaust System Repair', 'Electrical System Repair', 'Suspension Repair', 'Radiator Flush', 'Fuel System Cleaning', 'Headlight Restoration', 'Windshield Replacement', 'Paintless Dent Repair', 'Interior Detailing', 'Car Wash and Wax', 'Towing Service', 'Other'],
+            message: '{VALUE} is not supported as a vehicle service.'
+        } 
+    },
+    serviceDescription: { 
+        type: String, 
+        required: false, 
     },
     clientConfirmation: { 
         type: String, 
