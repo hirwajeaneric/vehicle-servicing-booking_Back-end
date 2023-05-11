@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { findById, getUsers, requestPasswordReset, resetPassword, signIn, signUp, updateUser, findByEmail, upload, attachFile, deleteAccount } = require('../controllers/user');
+const { findById, getUsers, requestPasswordReset, resetPassword, signIn, signUp, updateUser, findByEmail, upload, attachFile, deleteAccount } = require('../controllers/user.controllers');
 
 router.post('/signin', signIn);
 router.post('/signup', upload.single('profilePicture'), attachFile, signUp);
