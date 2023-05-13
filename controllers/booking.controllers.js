@@ -2,7 +2,6 @@ const Booking = require('../models/booking.model');
 const { StatusCodes } = require('http-status-codes');
 const { BadRequestError, NotFoundError } = require('../errors/index');
 const multer= require('multer');
-const sendEmail = require('../utils/email/sendEmail');
 const ScheduleModel = require('../models/schedule.model');
 
 // Establishing a multer storage
@@ -32,39 +31,34 @@ const attachFile = async (req, res, next) => {
 
     // Check if there is such a booking already
     if (query.id) {
-        const existingBooking = await Booking.findById(query.id);
-        
-        if (existingBooking && existingBooking.photos.length !== 0) {
+        const existingBooking = await Booking.findById(query.id); 
+        if (existingBooking && existingBooking.photos && !existingBooking.photos) {
             pics = existingBooking.photos;
-            if (files.length !== 0) {
+            if (files) {
                 files.forEach(file => {
-                    pics.push(file.filename); 
-                });
-            } else if (files.length === 0 && file) {
-                pics.push(file);
-            }
-        } else if (existingBooking.picturers.length === 0) {
-            pics = existingBooking.photos;
-            if (files.length !== 0) {
-                files.forEach(file => {
-                    pics.push(file.filename); 
-                });
-            } else if (files.length === 0 && file) {
+                    pics.push(file.filename);
+                })
+            } else if (!files && file) {
                 pics.push(file);
             }
         } else if (!existingBooking) {
-            throw new BadRequestError(`Not found!`);
+            if (files) {
+                files.forEach(file => {
+                    pics.push(file.filename);
+                })
+            } else if (!files && file) {
+                pics.push(file);
+            }
         }
     } else {
-        if (files.length !== 0) {
+        if (files) {
             files.forEach(file => {
-                pics.push(file.filename); 
-            });       
-        } else if (files.length === 0 && file) {
+                pics.push(file.filename);
+            })
+        } else if (!files && file) {
             pics.push(file);
         }
     }
-
     body.photos = pics;
     next();
 }
@@ -158,19 +152,21 @@ const edit = async(req, res, next) => {
     var booking = req.body;
     const bookingId = req.query.id;
     
-    const updated = await Booking.findByIdAndUpdate({ _id: bookingId}, req.body );
+    const updated = await Booking.findByIdAndUpdate({ _id: bookingId}, req.body);
+    // next();
+
     const updatedBooking = await Booking.findById(updated._id);
 
     if (!updatedBooking) {
         throw new NotFoundError(`Booking with id ${bookingId} not found!`);
     }
-
-    next();
-
     res.status(StatusCodes.OK).json({ message: 'Booking updated', payload: updatedBooking})
 };
 
-const updateSchedule = async (req, res) => {
+const updateSchedule = async (req, res, next) => {
+    // Adding a schedule if there is none.
+
+    // Updating the schedule   
     if (req.body.status && req.body.status === 'Confirmed' || req.body.status === 'Rescheduled' || req.body.status === 'Cancelled') {
         const schedule = await ScheduleModel.findByIdAndUpdate();
     }

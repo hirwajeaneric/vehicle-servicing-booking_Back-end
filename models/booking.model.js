@@ -17,6 +17,7 @@ const bookingSchema = new mongoose.Schema({
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             'Please provide a valid email',
         ],
+        unique: false,
     },
     vehicleType: { 
         type: String, 
@@ -88,8 +89,7 @@ const bookingSchema = new mongoose.Schema({
             values: ['Unconfirmed', 'Confirmed', 'Cancelled'],
             message: '{VALUE} is not supported as a confirmation.'
         }
-    }
-    ,
+    },
     cancelDate: {
         type: Date, 
         required: false
