@@ -11,12 +11,11 @@ const bookingSchema = new mongoose.Schema({
     },
     email: { 
         type: String, 
-        trim: true, 
         required: [true, 'Email must be provided'],
         match: [
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             'Please provide a valid email',
-        ],
+        ]
     },
     vehicleType: { 
         type: String, 
@@ -83,13 +82,12 @@ const bookingSchema = new mongoose.Schema({
     workStatus: {
         type: String, 
         required: false,
-        default: "Unconfirmed",
+        default: "Todo",
         enum: {
-            values: ['Unconfirmed', 'Confirmed', 'Cancelled'],
+            values: ['Todo', 'In progress', 'Ended'],
             message: '{VALUE} is not supported as a confirmation.'
         }
-    }
-    ,
+    },
     cancelDate: {
         type: Date, 
         required: false

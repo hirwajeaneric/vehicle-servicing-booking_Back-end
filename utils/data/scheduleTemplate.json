@@ -1,0 +1,411 @@
+{
+    "hours": [
+      {
+        "hourTime": 0,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 1,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 2,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 3,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 4,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 5,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 6,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 7,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 8,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 9,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 10,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 11,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 12,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },{
+        "hourTime": 13,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 14,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 15,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 16,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 17,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 18,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 19,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 20,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 21,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 22,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      },
+      {
+        "hourTime": 23,
+        "slots": [
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          },
+          {
+            "status":"Unoccupied"
+          }
+        ]
+      }
+    ]
+  }
