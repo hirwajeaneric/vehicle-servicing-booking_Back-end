@@ -2,7 +2,6 @@ const Booking = require('../models/booking.model');
 const { StatusCodes } = require('http-status-codes');
 const { BadRequestError, NotFoundError } = require('../errors/index');
 const multer= require('multer');
-const ScheduleModel = require('../models/schedule.model');
 
 // Establishing a multer storage
 const multerStorage = multer.diskStorage({
@@ -151,26 +150,14 @@ const remove = async(req, res) => {
 const edit = async(req, res, next) => {
     var booking = req.body;
     const bookingId = req.query.id;
-    
     const updated = await Booking.findByIdAndUpdate({ _id: bookingId}, req.body);
-
     const updatedBooking = await Booking.findById(updated._id);
-    updateSchedule(updatedBooking);
 
     if (!updatedBooking) {
         throw new NotFoundError(`Booking with id ${bookingId} not found!`);
     }
     res.status(StatusCodes.OK).json({ message: 'Booking updated', payload: updatedBooking})
 };
-
-const updateSchedule = async () => {
-    // Adding a schedule if there is none.
-
-    // Updating the schedule   
-    if (req.body.status && req.body.status === 'Confirmed' || req.body.status === 'Rescheduled' || req.body.status === 'Cancelled') {
-        const schedule = await ScheduleModel.findByIdAndUpdate();
-    }
-}
 
 module.exports = { 
     add, 

@@ -8,7 +8,6 @@ const {
     edit, 
     attachFile, 
     upload, 
-    updateSchedule,
     findByStatus, 
     findByCancelDate, 
     getAll, 
