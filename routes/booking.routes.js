@@ -23,7 +23,7 @@ const {
 
 
 router.post('/add', upload.array('photos'), attachFile, add);
-router.put('/update', upload.array('photos'), attachFile, edit, updateSchedule);
+router.put('/update', upload.array('photos'), attachFile, edit);
 router.delete('/delete', remove);
 router.get('/list', getAll);
 router.get('/findById', findById);

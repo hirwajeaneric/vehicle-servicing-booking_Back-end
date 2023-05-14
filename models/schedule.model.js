@@ -14,7 +14,7 @@ const scheduleSchema = new mongoose.Schema({
                         default: 'Occupied',
                         required: true,
                         enum: {
-                            values: ['Occupied', 'Free', 'Unusable'],
+                            values: ['Occupied', 'Unoccupied', 'Unusable'],
                             message: '{VALUE} is not supported as a slot status.'
                         }
                     },

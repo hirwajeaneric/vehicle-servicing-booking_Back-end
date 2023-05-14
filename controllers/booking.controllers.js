@@ -153,9 +153,9 @@ const edit = async(req, res, next) => {
     const bookingId = req.query.id;
     
     const updated = await Booking.findByIdAndUpdate({ _id: bookingId}, req.body);
-    // next();
 
     const updatedBooking = await Booking.findById(updated._id);
+    updateSchedule(updatedBooking);
 
     if (!updatedBooking) {
         throw new NotFoundError(`Booking with id ${bookingId} not found!`);
@@ -163,14 +163,13 @@ const edit = async(req, res, next) => {
     res.status(StatusCodes.OK).json({ message: 'Booking updated', payload: updatedBooking})
 };
 
-const updateSchedule = async (req, res, next) => {
+const updateSchedule = async () => {
     // Adding a schedule if there is none.
 
     // Updating the schedule   
     if (req.body.status && req.body.status === 'Confirmed' || req.body.status === 'Rescheduled' || req.body.status === 'Cancelled') {
         const schedule = await ScheduleModel.findByIdAndUpdate();
     }
-    next();
 }
 
 module.exports = { 
