@@ -173,7 +173,6 @@ module.exports = {
     findByTypeOfService, 
     findByWorkStatus, 
     edit, 
-    updateSchedule,
     findByStatus, 
     findById, 
     remove 

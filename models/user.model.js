@@ -34,6 +34,13 @@ const UserSchema = new mongoose.Schema({
     profilePicture: { 
         type: String, 
         required: false, 
+    },
+    role: {
+    	type: String, 
+        enum: {
+            values: ['admin', 'client'],
+            message: '{VALUE} is not supported as a user role.'
+        }
     }
 }) 
 

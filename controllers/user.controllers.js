@@ -95,6 +95,16 @@ const findByEmail = async(req, res, next) => {
     res.status(200).json({ users });
 };
 
+const findByRole = async(req, res, next) => {
+    const userRole = req.query.role;
+    const users = await User.find({ role: userRole })
+    
+    if (!users || users.length === 0 ) {
+        throw new NotFoundError(`No available user with role: ${userRole}`);
+    }
+    res.status(200).json({ users });
+};
+
 // Establishing a multer storage
 const multerStorage = multer.diskStorage({
     destination: (req, file, callback) => { callback(null, './profiles') },
@@ -211,4 +221,4 @@ const deleteAccount = async(req, res, next) => {
     res.status(StatusCodes.OK).json({ message: "Account deleted!" });
 };
 
-module.exports = { signIn, signUp, requestPasswordReset, findByEmail, resetPassword, getUsers, findById, updateUser, upload, deleteAccount, attachFile }
+module.exports = { signIn, signUp, requestPasswordReset, findByRole, findByEmail, resetPassword, getUsers, findById, updateUser, upload, deleteAccount, attachFile }
