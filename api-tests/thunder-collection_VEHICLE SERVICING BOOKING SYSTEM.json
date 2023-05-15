@@ -1,0 +1,194 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "VEHICLE SERVICING BOOKING SYSTEM",
+    "dateExported": "2023-05-14T18:54:31.827Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "d9cb21c0-8d9a-49ad-b7df-4b57ef5fd384",
+            "name": "USER",
+            "containerId": "",
+            "created": "2023-05-11T18:54:04.116Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "f38f937a-2be3-49f1-a82a-c387b61fd6bc",
+            "name": "BOOKINGS",
+            "containerId": "",
+            "created": "2023-05-11T18:54:11.414Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "95c85182-4601-441b-8f90-3c4d22f14630",
+            "name": "SCHEDULES",
+            "containerId": "",
+            "created": "2023-05-11T18:54:21.829Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "9cc80fb1-bc4e-476a-8621-442e527aa265",
+            "colId": "c1b351c7-6148-4c48-b8c3-8854a6b64948",
+            "containerId": "d9cb21c0-8d9a-49ad-b7df-4b57ef5fd384",
+            "name": "Sign in",
+            "url": "{{vehicle_booking}}/user/signin",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-05-11T18:48:32.372Z",
+            "modified": "2023-05-11T19:01:14.960Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"higiro@gmail.com\",\n  \"password\":\"Higiro123!\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "32707e06-41d0-4f57-8e84-55777f31d9b6",
+            "colId": "c1b351c7-6148-4c48-b8c3-8854a6b64948",
+            "containerId": "d9cb21c0-8d9a-49ad-b7df-4b57ef5fd384",
+            "name": "Sign up",
+            "url": "{{vehicle_booking}}/user/signup",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-05-11T18:55:04.538Z",
+            "modified": "2023-05-13T21:04:00.250Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"fullName\":\"Umubyeyi Bienvenue\",\n  \"email\":\"bienvenue@gmail.com\",\n  \"phone\":\"0789321943\",\n  \"password\":\"Bienvenue123!\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ffc6ffec-4d1e-413d-993f-704613dc9ff2",
+            "colId": "c1b351c7-6148-4c48-b8c3-8854a6b64948",
+            "containerId": "d9cb21c0-8d9a-49ad-b7df-4b57ef5fd384",
+            "name": "list users",
+            "url": "{{vehicle_booking}}/user/list",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-05-11T18:55:25.913Z",
+            "modified": "2023-05-11T18:55:37.272Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3b4e4969-af5b-4f47-9269-cdc08bca7f3a",
+            "colId": "c1b351c7-6148-4c48-b8c3-8854a6b64948",
+            "containerId": "f38f937a-2be3-49f1-a82a-c387b61fd6bc",
+            "name": "New booking",
+            "url": "{{vehicle_booking}}/booking/add",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-05-11T19:01:41.242Z",
+            "modified": "2023-05-13T21:04:43.438Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"bienvenue@gmail.com\",\n  \"fullName\": \"Umubyeyi Bienvenue\",\n  \"phone\": \"0789321943\",\n  \"vehicleType\":\"Car\",\n  \"vehicleModel\":\"Brabus\",\n  \"typeOfService\":\"Engine Tune-up\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "55232498-b44f-4c0c-8f99-891a7e32c451",
+            "colId": "c1b351c7-6148-4c48-b8c3-8854a6b64948",
+            "containerId": "f38f937a-2be3-49f1-a82a-c387b61fd6bc",
+            "name": "List all",
+            "url": "{{vehicle_booking}}/booking/list",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-05-11T19:02:34.816Z",
+            "modified": "2023-05-11T19:02:45.110Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "97c8ba94-e0fd-4f12-b870-619612ce110a",
+            "colId": "c1b351c7-6148-4c48-b8c3-8854a6b64948",
+            "containerId": "f38f937a-2be3-49f1-a82a-c387b61fd6bc",
+            "name": "Update booking",
+            "url": "{{vehicle_booking}}/booking/update?id=645ffb6b99ee7aa1ddf66804",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-05-11T19:03:00.548Z",
+            "modified": "2023-05-13T21:12:23.593Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "645ffb6b99ee7aa1ddf66804",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"workStatus\": \"Unonfirmed\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3986bf1b-802b-44e6-8dc1-8182afba06fd",
+            "colId": "c1b351c7-6148-4c48-b8c3-8854a6b64948",
+            "containerId": "95c85182-4601-441b-8f90-3c4d22f14630",
+            "name": "New schedule",
+            "url": "{{vehicle_booking}}/schedule/add",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-05-14T16:45:20.090Z",
+            "modified": "2023-05-14T17:37:02.543Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c0a2a263-77ea-4cf0-a09c-fc7a6d8f600b",
+            "colId": "c1b351c7-6148-4c48-b8c3-8854a6b64948",
+            "containerId": "95c85182-4601-441b-8f90-3c4d22f14630",
+            "name": "List schedules",
+            "url": "{{vehicle_booking}}/schedule/list",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-05-14T17:59:15.349Z",
+            "modified": "2023-05-14T17:59:21.246Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3394c2fb-30a3-4799-94e2-170790734ab3",
+            "colId": "c1b351c7-6148-4c48-b8c3-8854a6b64948",
+            "containerId": "95c85182-4601-441b-8f90-3c4d22f14630",
+            "name": "Update Schedule",
+            "url": "{{vehicle_booking}}/schedule/update?id=6461271f0861a0c56c00b6bc",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2023-05-14T18:14:54.915Z",
+            "modified": "2023-05-14T18:25:44.837Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "6461271f0861a0c56c00b6bc",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"hours\": [\n        {\n          \"hourTime\": 0,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6be\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6bf\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6c0\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6c1\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6bd\"\n        },\n        {\n          \"hourTime\": 1,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6c3\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6c4\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6c5\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6c6\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6c2\"\n        },\n        {\n          \"hourTime\": 2,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6c8\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6c9\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6ca\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6cb\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6c7\"\n        },\n        {\n          \"hourTime\": 3,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6cd\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6ce\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6cf\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6d0\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6cc\"\n        },\n        {\n          \"hourTime\": 4,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6d2\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6d3\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6d4\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6d5\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6d1\"\n        },\n        {\n          \"hourTime\": 5,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6d7\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6d8\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6d9\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6da\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6d6\"\n        },\n        {\n          \"hourTime\": 6,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6dc\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6dd\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6de\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6df\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6db\"\n        },\n        {\n          \"hourTime\": 7,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6e1\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6e2\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6e3\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6e4\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6e0\"\n        },\n        {\n          \"hourTime\": 8,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6e6\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6e7\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6e8\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6e9\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6e5\"\n        },\n        {\n          \"hourTime\": 9,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6eb\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6ec\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6ed\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6ee\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6ea\"\n        },\n        {\n          \"hourTime\": 10,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6f0\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6f1\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6f2\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6f3\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6ef\"\n        },\n        {\n          \"hourTime\": 11,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6f5\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6f6\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6f7\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6f8\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6f4\"\n        },\n        {\n          \"hourTime\": 12,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6fa\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6fb\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6fc\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6fd\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6f9\"\n        },\n        {\n          \"hourTime\": 13,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b6ff\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b700\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b701\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b702\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b6fe\"\n        },\n        {\n          \"hourTime\": 14,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b704\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b705\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b706\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b707\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b703\"\n        },\n        {\n          \"hourTime\": 15,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b709\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b70a\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b70b\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b70c\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b708\"\n        },\n        {\n          \"hourTime\": 16,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b70e\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b70f\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b710\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b711\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b70d\"\n        },\n        {\n          \"hourTime\": 17,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b713\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b714\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b715\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b716\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b712\"\n        },\n        {\n          \"hourTime\": 18,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b718\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b719\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b71a\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b71b\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b717\"\n        },\n        {\n          \"hourTime\": 19,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b71d\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b71e\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b71f\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b720\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b71c\"\n        },\n        {\n          \"hourTime\": 20,\n          \"slots\": [\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b722\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b723\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b724\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b725\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b721\"\n        },\n        {\n          \"hourTime\": 21,\n          \"slots\": [\n            {\n              \"status\": \"Occupied\",\n              \"vehicle\":\"645fccc73db571ccde24c572\",\n              \"_id\": \"6461271f0861a0c56c00b727\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b728\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b729\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b72a\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b726\"\n        },\n        {\n          \"hourTime\": 22,\n          \"slots\": [\n            {\n              \"status\": \"Occupied\",\n              \"vehicle\":\"645fccc73db571ccde24c572\",\n              \"_id\": \"6461271f0861a0c56c00b72c\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b72d\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b72e\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b72f\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b72b\"\n        },\n        {\n          \"hourTime\": 23,\n          \"slots\": [\n            {\n              \"status\": \"Occupied\",\n              \"vehicle\":\"645fccc73db571ccde24c572\",\n              \"_id\": \"6461271f0861a0c56c00b731\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b732\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b733\"\n            },\n            {\n              \"status\": \"Unoccupied\",\n              \"_id\": \"6461271f0861a0c56c00b734\"\n            }\n          ],\n          \"_id\": \"6461271f0861a0c56c00b730\"\n        }\n      ]\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
