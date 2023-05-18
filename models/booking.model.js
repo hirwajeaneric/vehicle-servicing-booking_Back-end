@@ -97,7 +97,11 @@ const bookingSchema = new mongoose.Schema({
             type: String, 
             required: false,
         }
-    ]
+    ],
+    submittedOn: {
+        type: Date, 
+        default: Date.now()        
+    }
 }) 
 
 module.exports = mongoose.model('Booking', bookingSchema);
