@@ -28,29 +28,45 @@ const attachFile = async (req, res, next) => {
     var pics = [];
     const {query, body, files, file} = req;
     
-    console.log(body);
-    console.log(files);
-    console.log(file);
-
     // Check if there is such a booking already
     if (query.id) {
         const existingBooking = await Booking.findById(query.id); 
-        if (existingBooking && existingBooking.photos && !existingBooking.photos) {
+        if (existingBooking && existingBooking.photos) {
             pics = existingBooking.photos;
             if (files) {
                 files.forEach(file => {
                     pics.push(file.filename);
-                })
+                });
+                body.photos = pics;
             } else if (!files && file) {
                 pics.push(file);
+                body.photos = pics;
+            } else if (!files && !file) {
+                delete body.photos;
+            }
+        } else if (existingBooking && !existingBooking.photos ) {
+            if (files) {
+                files.forEach(file => {
+                    pics.push(file.filename);
+                })
+                body.photos = pics;
+            } else if (!files && file) {
+                pics.push(file);
+                body.photos = pics;
+            } else if (!files && !file) {
+                delete body.photos;
             }
         } else if (!existingBooking) {
             if (files) {
                 files.forEach(file => {
                     pics.push(file.filename);
                 })
+                body.photos = pics;
             } else if (!files && file) {
                 pics.push(file);
+                body.photos = pics;
+            } else if (!files && !file) {
+                delete body.photos;
             }
         }
     } else {
@@ -58,11 +74,12 @@ const attachFile = async (req, res, next) => {
             files.forEach(file => {
                 pics.push(file.filename);
             })
+            body.photos = pics;
         } else if (!files && file) {
             pics.push(file);
+            body.photos = pics;
         }
     }
-    body.photos = pics;
     next();
 }
 
