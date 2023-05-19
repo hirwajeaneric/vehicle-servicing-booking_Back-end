@@ -174,8 +174,9 @@ const edit = async(req, res, next) => {
     var booking = req.body;
     const bookingId = req.query.id;
     const updated = await Booking.findByIdAndUpdate({ _id: bookingId}, req.body);
-    const updatedBooking = await Booking.findById(updated._id);
-    
+    var newBooking = await Booking.findById(updated._id);
+    var updatedBooking = newBooking;
+
     const emailTemplate = { email: '', subject: '', text: '' };
 
     if (updatedBooking) {
@@ -187,7 +188,7 @@ const edit = async(req, res, next) => {
             } else if (booking.status === 'Rescheduled') {
                 emailTemplate.email = updatedBooking.email;
                 emailTemplate.subject = 'Rescheduled.';
-                emailTemplate.text = `Dear ${updatedBooking.fullName},\n\nYour reservation for a slot in our garage for ${updatedBooking.typeOfService} for vehicle type (${updatedBooking.vehicleType}), ${updatedBooking.vehicleModel} model has been rescheduled to the period writed bellow. This is to ensure that your vehicle gets a suffiscient amount of attention and care for better services are our main goal.\n\nDate: ${updatedBooking.serviceDay}\nStart hour: ${updatedBooking.startHour}\n\nPlease, make sure to arrive at the garage early (At least 15min before) to get your car readied for inspections. \n\nBest regards,`;
+                emailTemplate.text = `Dear ${updatedBooking.fullName},\n\nYour reservation for a slot in our garage for ${updatedBooking.typeOfService} for vehicle type (${updatedBooking.vehicleType}), ${updatedBooking.vehicleModel} model has been rescheduled to the period writed bellow. This is to ensure that your vehicle gets a suffiscient amount of attention and care for better services are our main goal.\n\nDate: ${new Date(updatedBooking.serviceDay).toDateString()}\nStart hour: ${updatedBooking.startHour} h\n\nPlease, make sure to arrive at the garage early (At least 15min before) to get your car readied for inspections. \n\nBest regards,`;
             } else if (booking.status === 'Canceled') {
                 emailTemplate.email = updatedBooking.email;
                 emailTemplate.subject = 'Reservation Cancelled';
@@ -199,10 +200,16 @@ const edit = async(req, res, next) => {
                 emailTemplate.subject = 'Vehicle Services Completed';
                 emailTemplate.text = `Dear ${updatedBooking.fullName},\n\nThis is to inform you that works on your vehicle that was stationed in our garage for ${updatedBooking.typeOfService} have been completed. You are thereby requested to come and pic your vehicle not later than a day (24 hours) from the time this message is delivered to you. \n\nPlease note that failure to take your car from the garage will result in extra parking fees since parking space is very much in demand.\n\nBest regards,`;;
             }
+        } else if (!booking.status && (booking.serviceDay !== updatedBooking.serviceDay || booking.startHour !== updatedBooking.startHour)) {
+            if (booking.status === 'Rescheduled') {
+                emailTemplate.email = updatedBooking.email;
+                emailTemplate.subject = 'Rescheduled.';
+                emailTemplate.text = `Dear ${updatedBooking.fullName},\n\nYour reservation for a slot in our garage for ${updatedBooking.typeOfService} for vehicle type (${updatedBooking.vehicleType}), ${updatedBooking.vehicleModel} model has been rescheduled to the period writed bellow. This is to ensure that your vehicle gets a suffiscient amount of attention and care for better services are our main goal.\n\nDate: ${new Date(updatedBooking.serviceDay).toDateString()}\nStart hour: ${updatedBooking.startHour} h.\n\nPlease, make sure to arrive at the garage early (At least 15min before) to get your car readied for inspections. \n\nBest regards,`;
+            } 
         }
     }
 
-    await sendEmail((email, subject, text));
+    await sendEmail(emailTemplate.email, emailTemplate.subject, emailTemplate.text);
 
     if (!updatedBooking) {
         throw new NotFoundError(`Booking with id ${bookingId} not found!`);
