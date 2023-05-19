@@ -2,6 +2,8 @@ const Booking = require('../models/booking.model');
 const { StatusCodes } = require('http-status-codes');
 const { BadRequestError, NotFoundError } = require('../errors/index');
 const multer= require('multer');
+const sendEmail = require('../utils/email/sendEmail');
+const { email } = require('react-admin');
 
 // Establishing a multer storage
 const multerStorage = multer.diskStorage({
@@ -173,6 +175,34 @@ const edit = async(req, res, next) => {
     const bookingId = req.query.id;
     const updated = await Booking.findByIdAndUpdate({ _id: bookingId}, req.body);
     const updatedBooking = await Booking.findById(updated._id);
+    
+    const emailTemplate = { email: '', subject: '', text: '' };
+
+    if (updatedBooking) {
+        if (booking.status !== updatedBooking.status) {
+            if (booking.status === 'Confirmed') {
+                emailTemplate.email = updatedBooking.email;
+                emailTemplate.subject = 'Reservation Confirmed';
+                emailTemplate.text = `Dear ${updatedBooking.fullName},\n\nYour reservation for a slot in our garage for ${updatedBooking.typeOfService} for vehicle type (${updatedBooking.vehicleType}), ${updatedBooking.vehicleModel} model has been confirmed. The service you requested shall be performed on the day and time specified bellow:\n\nDate: ${updatedBooking.serviceDay}\nStart hour: ${updatedBooking.startHour}\nSlot number: ${updatedBooking.temporalSlotNumber}\n\nPlease, make sure to arrive at the garage early (At least 15min before) to get your car readied for inspections. \n\nBest regards,`;
+            } else if (booking.status === 'Rescheduled') {
+                emailTemplate.email = updatedBooking.email;
+                emailTemplate.subject = 'Rescheduled.';
+                emailTemplate.text = `Dear ${updatedBooking.fullName},\n\nYour reservation for a slot in our garage for ${updatedBooking.typeOfService} for vehicle type (${updatedBooking.vehicleType}), ${updatedBooking.vehicleModel} model has been rescheduled to the period writed bellow. This is to ensure that your vehicle gets a suffiscient amount of attention and care for better services are our main goal.\n\nDate: ${updatedBooking.serviceDay}\nStart hour: ${updatedBooking.startHour}\n\nPlease, make sure to arrive at the garage early (At least 15min before) to get your car readied for inspections. \n\nBest regards,`;
+            } else if (booking.status === 'Canceled') {
+                emailTemplate.email = updatedBooking.email;
+                emailTemplate.subject = 'Reservation Cancelled';
+                emailTemplate.text = `Dear ${updatedBooking.fullName},\n\nYour reservation for a slot in our garage for ${updatedBooking.typeOfService} for vehicle type (${updatedBooking.vehicleType}), ${updatedBooking.vehicleModel} model is cancelled. If it was not cancelled because you are late, or if you are late because of an issue. Please contact the garage representatives or submit a new reservation.\n\nBest regards,`;
+            }
+        } else if (booking.workStatus !== updatedBooking.workStatus) {
+            if (booking.workStatus === 'Ended') {
+                emailTemplate.email = updatedBooking.email;
+                emailTemplate.subject = 'Vehicle Services Completed';
+                emailTemplate.text = `Dear ${updatedBooking.fullName},\n\nThis is to inform you that works on your vehicle that was stationed in our garage for ${updatedBooking.typeOfService} have been completed. You are thereby requested to come and pic your vehicle not later than a day (24 hours) from the time this message is delivered to you. \n\nPlease note that failure to take your car from the garage will result in extra parking fees since parking space is very much in demand.\n\nBest regards,`;;
+            }
+        }
+    }
+
+    await sendEmail((email, subject, text));
 
     if (!updatedBooking) {
         throw new NotFoundError(`Booking with id ${bookingId} not found!`);
