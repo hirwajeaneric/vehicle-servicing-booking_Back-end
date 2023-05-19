@@ -164,7 +164,7 @@ const requestPasswordReset = async(req, res, next) => {
     
     let clientDomain = '192.168.43.16';
 
-    let link = `http://${clientDomain || localhost}:4444/auth/reset-password/${token}/${registeredUser._id}`;
+    let link = `http://${clientDomain || localhost}:3333/auth/reset-password/${token}/${registeredUser._id}`;
 
     await sendEmail(
         registeredUser.email,
