@@ -75,7 +75,7 @@ const bookingSchema = new mongoose.Schema({
         required: true,
         default: "Pending",
         enum: {
-            values: ['Pending', 'Confirmed', 'Rescheduled', 'Cancelled'],
+            values: ['Pending', 'Confirmed', 'Rescheduled', 'Canceled'],
             message: '{VALUE} is not supported as a booking status.'
         }
     },

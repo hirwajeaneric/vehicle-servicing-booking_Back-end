@@ -27,6 +27,10 @@ const upload = multer({
 const attachFile = async (req, res, next) => {
     var pics = [];
     const {query, body, files, file} = req;
+    
+    console.log(body);
+    console.log(files);
+    console.log(file);
 
     // Check if there is such a booking already
     if (query.id) {
