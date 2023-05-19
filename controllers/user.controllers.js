@@ -154,7 +154,7 @@ const updateUser = async(req, res, next) => {
 };
 
 const requestPasswordReset = async(req, res, next) => {
-    const { email } = req.body;
+    const { email, role } = req.body;
     if (!email) {throw new BadRequestError('Your email is required')} 
     
     const registeredUser = await User.findOne({ email: email });
@@ -164,7 +164,13 @@ const requestPasswordReset = async(req, res, next) => {
     
     let clientDomain = '192.168.43.16';
 
-    let link = `http://${clientDomain || localhost}:4444/auth/reset-password/${token}/${registeredUser._id}`;
+    let link = '' 
+    
+    if (role === 'client') {
+        link = `http://${clientDomain || localhost}:3333/client/reset-password/${token}/${registeredUser._id}`;
+    } else {
+        link = `http://${clientDomain || localhost}:3333/admin/auth/reset-password/${token}/${registeredUser._id}`; 
+    }
 
     await sendEmail(
         registeredUser.email,

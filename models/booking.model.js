@@ -46,7 +46,7 @@ const bookingSchema = new mongoose.Schema({
         required: false,
         default: "Unconfirmed",
         enum: {
-            values: ['Unconfirmed', 'Confirmed', 'Cancelled'],
+            values: ['Unconfirmed', 'Confirmed', 'Canceled'],
             message: '{VALUE} is not supported as a confirmation.'
         } 
     },
@@ -75,7 +75,7 @@ const bookingSchema = new mongoose.Schema({
         required: true,
         default: "Pending",
         enum: {
-            values: ['Pending', 'Confirmed', 'Rescheduled', 'Cancelled'],
+            values: ['Pending', 'Confirmed', 'Rescheduled', 'Canceled'],
             message: '{VALUE} is not supported as a booking status.'
         }
     },
@@ -97,7 +97,11 @@ const bookingSchema = new mongoose.Schema({
             type: String, 
             required: false,
         }
-    ]
+    ],
+    submittedOn: {
+        type: Date, 
+        default: Date.now()        
+    }
 }) 
 
 module.exports = mongoose.model('Booking', bookingSchema);
