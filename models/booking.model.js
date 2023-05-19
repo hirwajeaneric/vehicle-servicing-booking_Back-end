@@ -46,7 +46,7 @@ const bookingSchema = new mongoose.Schema({
         required: false,
         default: "Unconfirmed",
         enum: {
-            values: ['Unconfirmed', 'Confirmed', 'Cancelled'],
+            values: ['Unconfirmed', 'Confirmed', 'Canceled'],
             message: '{VALUE} is not supported as a confirmation.'
         } 
     },
